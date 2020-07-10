@@ -1,0 +1,255 @@
+{
+    "table":  
+        {
+            "skillName": "",
+            "weekId": "",
+            "monthId": "",
+            "yearFK": "",
+            "learning": {     
+                "monday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "tuesday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "wednesday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "thursday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "friday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "saturday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "sunday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "goal": {
+                    "hours": "", 
+                    "minutes":""
+                }
+            },
+            "practicing": {
+                "monday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "tuesday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "wednesday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "thursday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "friday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "saturday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "sunday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "goal": {
+                    "hours": "", 
+                    "minutes":""
+                }
+            },
+            "performing": {
+                "monday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "tuesday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "wednesday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "thursday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "friday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "saturday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "sunday": {
+                    "hours": "", 
+                    "minutes":""
+                },
+                "goal": {
+                    "hours": "", 
+                    "minutes":""
+                }
+            },
+            "total": {
+                "actual": {
+                    "hours": "",
+                    "minutes": ""
+                },
+                "goal": {
+                    "hours": "", 
+                    "minutes": ""
+                }
+            }
+        }
+    
+}
+
+{
+    "table":  
+        {
+            "skillName": "coding",
+            "weekId": "1",
+            "learning": {     
+                "monday": {
+                    "hours": "3", 
+                    "minutes":"25"
+                },
+                "tuesday": {
+                    "hours": "1", 
+                    "minutes":"15"
+                },
+                "wednesday": {
+                    "hours": "3", 
+                    "minutes":"23"
+                },
+                "thursday": {
+                    "hours": "4", 
+                    "minutes":"22"
+                },
+                "friday": {
+                    "hours": "3", 
+                    "minutes":"2"
+                },
+                "saturday": {
+                    "hours": "5", 
+                    "minutes":"4"
+                },
+                "sunday": {
+                    "hours": "23", 
+                    "minutes":"3"
+                },
+                "actual": {
+                    "hours": "2", 
+                    "minutes":"15"
+                },
+                "goal": {
+                    "hours": "2", 
+                    "minutes":"15"
+                }
+            },
+            "practicing": {
+                "monday": {
+                    "hours": "2", 
+                    "minutes":"34"
+                },
+                "tuesday": {
+                    "hours": "2", 
+                    "minutes":"14"
+                },
+                "wednesday": {
+                    "hours": "1", 
+                    "minutes":"45"
+                },
+                "thursday": {
+                    "hours": "2", 
+                    "minutes":"15"
+                },
+                "friday": {
+                    "hours": "3", 
+                    "minutes":"31"
+                },
+                "saturday": {
+                    "hours": "2", 
+                    "minutes":"35"
+                },
+                "sunday": {
+                    "hours": "2", 
+                    "minutes":"16"
+                },
+                "actual": {
+                    "hours": "4", 
+                    "minutes":"2"
+                },
+                "goal": {
+                    "hours": "3", 
+                    "minutes":"22"
+                }
+            },
+            "performing": {
+                "monday": {
+                    "hours": "4", 
+                    "minutes":"2"
+                },
+                "tuesday": {
+                    "hours": "11", 
+                    "minutes":"11"
+                },
+                "wednesday": {
+                    "hours": "11", 
+                    "minutes":"11"
+                },
+                "thursday": {
+                    "hours": "11", 
+                    "minutes":"11"
+                },
+                "friday": {
+                    "hours": "22", 
+                    "minutes":"22"
+                },
+                "saturday": {
+                    "hours": "2", 
+                    "minutes":"2"
+                },
+                "sunday": {
+                    "hours": "2", 
+                    "minutes":"2"
+                },
+                "actual": {
+                    "hours": "2", 
+                    "minutes":"2"
+                },
+                "goal": {
+                    "hours": "2", 
+                    "minutes":"2"
+                }
+            },
+            "total": {
+                "actual": {
+                    "hours": "12", 
+                    "minutes":"12"
+                },
+                "goal": {
+                    "hours": "1", 
+                    "minutes":"1"
+                }
+            }
+        }
+    
+}
