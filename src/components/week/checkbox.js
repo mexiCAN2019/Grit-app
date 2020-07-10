@@ -39,7 +39,7 @@ const Checkbox = ({ activity, onRemove, year }) => {
             case 'sunday':
                 setSundayChecked(itemCheck);
                 break;
-        }
+        };
     };
 
     const renderCheckbox = (dayOfWeek) => {
@@ -171,7 +171,7 @@ const Checkbox = ({ activity, onRemove, year }) => {
             saturday: saturdayChecked,
             sunday: sundayChecked,
             id: activity.id
-        }
+        };
         Express.updateCheckbox(year, updatedCheckbox);
     };
 
@@ -198,7 +198,7 @@ const Checkbox = ({ activity, onRemove, year }) => {
                 {renderCheckbox('sunday')}
             
         </div>
-    )
+    );
 };
 
 export default Checkbox;

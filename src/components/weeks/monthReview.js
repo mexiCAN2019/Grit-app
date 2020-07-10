@@ -64,7 +64,7 @@ function MonthReview ({match:{params: {monthAndMonthId, year}}}) {
             </div>
 
         </div>
-    )
+    );
 };
 
 export default MonthReview;
