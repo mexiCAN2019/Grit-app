@@ -14,28 +14,7 @@ function Weeks({ match:{params: {monthAndMonthId, year}}}) {
         Express.getWeeks(year, monthId).then(savedWeeks => setWeeks(savedWeeks)); 
     }, []);
 
-    const renderWeeks = () => {
-        return weeks.map(week => {
-            return (
-                <div>
-                    <Link to={`/${year}/${monthAndMonthId}/${week.id}`}
-                        key={week.id}>
-                        <h3>{week.week}</h3>
-                    </Link>
-                    <button value={week.id} onClick={handleDeleteYear}>Delete</button>
-                </div>
-            )
-        });
-    };
-
-    // Used this before adding backend
-    // const handleAdd = () => {
-    //     const repetitiveDate = weeks.find(week => week.id === day);
-    //     if(!day || repetitiveDate) {
-    //         return;
-    //     } 
-    //     setWeeks(prevWeeks => [...prevWeeks, {date: `${monthAndMonthId} ${day}`, id: day}]);
-    // }
+    
 
     const handleSaveWeek = () => {
         Express.createWeek(year, date, monthId).then(newWeek => setWeeks(savedWeeks => [...savedWeeks, newWeek]));
@@ -55,13 +34,28 @@ function Weeks({ match:{params: {monthAndMonthId, year}}}) {
             } setWeeks(currentWeek => currentWeek.filter(week => week.id != weekId))});
     };
 
+    const renderWeeks = () => {
+        return weeks.map(week => {
+            return (
+                <div className="deleteContainer">
+                    <Link className="link" to={`/${year}/${monthAndMonthId}/${week.id}`}
+                        key={week.id}>
+                        <h3>{week.week}</h3>
+                    </Link>
+                    <button value={week.id} onClick={handleDeleteYear}>Delete</button>
+                </div>
+            )
+        });
+    };
+
     return (
-        <div>
+        <div className="container">
             <h1>Weeks</h1>
             {renderWeeks()}
-            <input type="number" min="1" max="31" onChange={dateChange}></input> 
+            <input id="addInput" type="number" min="1" max="31" onChange={dateChange}></input> 
             <button onClick={handleSaveWeek}>Add</button>
-            <Link to={`/${year}/${monthAndMonthId}/monthReview`}><p>Month Review</p></Link>
+            <div className="space"></div>
+            <Link className="link" to={`/${year}/${monthAndMonthId}/monthReview`}><h4 id="review">Month Review</h4></Link>
         </div>
     );
 };

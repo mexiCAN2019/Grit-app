@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './landing.css';
 
 import Express from './../../fetchExpress';
 
@@ -12,28 +13,7 @@ function Landing () {
         Express.getYears().then(savedYears => setYears(savedYears.years));
     }, []);
 
-    const renderYears = () => {
-        return years.map(year => {
-            return (
-                <div>
-                    <Link to={`/${year.year}`}
-                        key={year.id}>
-                        <h3>{year.year}</h3>
-                    </Link>
-                    <button value={year.year} onClick={handleDeleteYear}>Delete</button>
-                </div>
-            );
-        });
-    };
-
-    // How app saved data in state before adding database
-    // const handleAdd = () => {
-    //     const repetitiveYear = years.find(year => year.year === yearChange);
-    //     if(!yearChange || repetitiveYear) {
-    //         return;
-    //     } 
-    //     setYears(currentYears => [{year: yearChange, id:yearChange}, ...currentYears ]);
-    // }
+    
 
     const handleYearChange = (e) => {
         setYearChange(e.target.value);
@@ -56,13 +36,27 @@ function Landing () {
             } setYears(currentYear => currentYear.filter(currentyear => currentyear.year != year))});
     };
 
+    const renderYears = () => {
+        return years.map(year => {
+            return (
+                <div className="white">
+                    <Link className="link" to={`/${year.year}`}
+                        key={year.id}>
+                        <h3>{year.year}</h3>
+                    </Link>
+                    <button value={year.year} onClick={handleDeleteYear}>Delete</button>
+                </div>
+            );
+        });
+    };
+
     return (
-        <div>
-            <h2>Choose year</h2>
+        <div className="container">
+            <h2>Choose A Year</h2>
             <div>
                 {renderYears()}
             </div>
-            <input type="number" onChange={handleYearChange} min='2020'></input>
+            <input id="addInput" type="number" onChange={handleYearChange} min='2020'></input>
             <button onClick={handleSaveYear}>Add</button>
         </div>
     );

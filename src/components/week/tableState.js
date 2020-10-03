@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Express from '../../fetchExpress';
+import './table.css';
 
 // *idea* create another module that sets all fetched data to state, that way add"""Time updates as hours/minutes are inputted. 
 
@@ -285,21 +286,24 @@ const Table = ({ activity, onRemove, year }) => {
     };
 
     const handleDeleteTable = () => {
-        Express.deleteTable(year, activity.id);
-        onRemove('table', activity);
+        if(window.confirm('Are you sure you want to delete table?')){
+            Express.deleteTable(year, activity.id);
+            alert('Table deleted!');
+            onRemove('table', activity);
+        } 
     };
 
     
 
     return (
         <div>
-        <input type="text" defaultValue={activity.skillName} onChange={(e) => setSkillName(e.target.value)}></input>
-        <button onClick={handleAddTime}>Add Time</button> {/* have to double click to add total time */}
+        <input className="skillName" type="text" defaultValue={activity.skillName} onChange={(e) => setSkillName(e.target.value)}></input>
         <button onClick={handleDeleteTable}>Delete</button>
+        <button onClick={handleAddTime}>Add Time</button> {/* have to double click to add total time */}
         <button onClick={handleSaveChanges}>Save Changes</button>
         <table>
             <thead>
-                <tr>
+                <tr className="headers">
                     <th></th>
                     <th>Monday</th>
                     <th>Tuesday</th>
@@ -315,137 +319,137 @@ const Table = ({ activity, onRemove, year }) => {
             <tbody>
                 <tr>
                     <th>Learning</th>
-                    <td id="monday">
-                        <input type="number" min='0' defaultValue={activity.learningMondayHours} onChange={(e) => setLearningMondayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningMondayMinutes} onChange={(e) => setLearningMondayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningMondayHours} onChange={(e) => setLearningMondayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningMondayMinutes} onChange={(e) => setLearningMondayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="tuesday">
-                        <input type="number" min='0' defaultValue={activity.learningTuesdayHours} onChange={(e) => setLearningTuesdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningTuesdayMinutes} onChange={(e) => setLearningTuesdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningTuesdayHours} onChange={(e) => setLearningTuesdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningTuesdayMinutes} onChange={(e) => setLearningTuesdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="wednesday">
-                        <input type="number" min='0' defaultValue={activity.learningWednesdayHours} onChange={(e) => setLearningWednesdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningWednesdayMinutes} onChange={(e) => setLearningWednesdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningWednesdayHours} onChange={(e) => setLearningWednesdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningWednesdayMinutes} onChange={(e) => setLearningWednesdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="thursday">
-                        <input type="number" min='0' defaultValue={activity.learningThursdayHours} onChange={(e) => setLearningThursdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningThursdayMinutes} onChange={(e) => setLearningThursdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningThursdayHours} onChange={(e) => setLearningThursdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningThursdayMinutes} onChange={(e) => setLearningThursdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="friday">
-                        <input type="number" min='0' defaultValue={activity.learningFridayHours} onChange={(e) => setLearningFridayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningFridayMinutes} onChange={(e) => setLearningFridayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningFridayHours} onChange={(e) => setLearningFridayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningFridayMinutes} onChange={(e) => setLearningFridayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="saturday">
-                        <input type="number" min='0' defaultValue={activity.learningSaturdayHours} onChange={(e) => setLearningSaturdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningSaturdayMinutes} onChange={(e) => setLearningSaturdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningSaturdayHours} onChange={(e) => setLearningSaturdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningSaturdayMinutes} onChange={(e) => setLearningSaturdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="sunday">
-                        <input type="number" min='0' defaultValue={activity.learningSundayHours} onChange={(e) => setLearningSundayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningSundayMinutes} onChange={(e) => setLearningSundayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningSundayHours} onChange={(e) => setLearningSundayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningSundayMinutes} onChange={(e) => setLearningSundayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="actual">
-                        <p>{totalLearningHours}</p>hrs
-                        <p>{totalLearningMinutes}</p>min
+                    <td className="actual">
+                        <p>{totalLearningHours} hrs</p>
+                        <p>{totalLearningMinutes} min</p>
                     </td>
-                    <td id="goal">
-                        <input type="number" min='0' defaultValue={activity.learningGoalHours} onChange={(e) => setLearningGoalHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.learningGoalMinutes} onChange={(e) => setLearningGoalMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.learningGoalHours} onChange={(e) => setLearningGoalHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.learningGoalMinutes} onChange={(e) => setLearningGoalMinutes(Number(e.target.value))}></input> min</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Practicing</th>
-                    <td id="monday">
-                        <input type="number" min='0' defaultValue={activity.practicingMondayHours} onChange={(e) => setPracticingMondayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingMondayMinutes} onChange={(e) => setPracticingMondayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingMondayHours} onChange={(e) => setPracticingMondayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingMondayMinutes} onChange={(e) => setPracticingMondayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="tuesday">
-                        <input type="number" min='0' defaultValue={activity.practicingTuesdayHours} onChange={(e) => setPracticingTuesdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingTuesdayMinutes} onChange={(e) => setPracticingTuesdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingTuesdayHours} onChange={(e) => setPracticingTuesdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingTuesdayMinutes} onChange={(e) => setPracticingTuesdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="wednesday">
-                        <input type="number" min='0' defaultValue={activity.practicingWednesdayHours}onChange={(e) => setPracticingWednesdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingWednesdayMinutes} onChange={(e) => setPracticingWednesdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingWednesdayHours}onChange={(e) => setPracticingWednesdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingWednesdayMinutes} onChange={(e) => setPracticingWednesdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="thursday">
-                        <input type="number" min='0' defaultValue={activity.practicingThursdayHours} onChange={(e) => setPracticingThursdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingThursdayMinutes} onChange={(e) => setPracticingThursdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingThursdayHours} onChange={(e) => setPracticingThursdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingThursdayMinutes} onChange={(e) => setPracticingThursdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="friday">
-                        <input type="number" min='0' defaultValue={activity.practicingFridayHours} onChange={(e) => setPracticingFridayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingFridayMinutes} onChange={(e) => setPracticingFridayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingFridayHours} onChange={(e) => setPracticingFridayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingFridayMinutes} onChange={(e) => setPracticingFridayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="saturday">
-                        <input type="number" min='0' defaultValue={activity.practicingSaturdayHours} onChange={(e) => setPracticingSaturdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingSaturdayMinutes} onChange={(e) => setPracticingSaturdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingSaturdayHours} onChange={(e) => setPracticingSaturdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingSaturdayMinutes} onChange={(e) => setPracticingSaturdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="sunday">
-                        <input type="number" min='0' defaultValue={activity.practicingSundayHours} onChange={(e) => setPracticingSundayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingSundayMinutes} onChange={(e) => setPracticingSundayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingSundayHours} onChange={(e) => setPracticingSundayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingSundayMinutes} onChange={(e) => setPracticingSundayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="actual">
-                        <p>{totalPracticingHours}</p>hrs
-                        <p>{totalPracticingMinutes}</p>min
+                    <td className="actual">
+                        <p>{totalPracticingHours} hrs</p>
+                        <p>{totalPracticingMinutes} min</p>
                     </td>
-                    <td id="goal">
-                        <input type="number" min='0' defaultValue={activity.practicingGoalHours} onChange={(e) => setPracticingGoalHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.practicingGoalMinutes} onChange={(e) => setPracticingGoalMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.practicingGoalHours} onChange={(e) => setPracticingGoalHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.practicingGoalMinutes} onChange={(e) => setPracticingGoalMinutes(Number(e.target.value))}></input> min</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Performing</th>
-                    <td id="monday">
-                        <input type="number" min='0' defaultValue={activity.performingMondayHours} onChange={(e) => setPerformingMondayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingMondayMinutes} onChange={(e) => setPerformingMondayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.performingMondayHours} onChange={(e) => setPerformingMondayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingMondayMinutes} onChange={(e) => setPerformingMondayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="tuesday">
-                        <input type="number" min='0' defaultValue={activity.performingTuesdayHours} onChange={(e) => setPerformingTuesdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingTuesdayMinutes} onChange={(e) => setPerformingTuesdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.performingTuesdayHours} onChange={(e) => setPerformingTuesdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingTuesdayMinutes} onChange={(e) => setPerformingTuesdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="wednesday">
-                        <input type="number" min='0' defaultValue={activity.performingWednesdayHours} onChange={(e) => setPerformingWednesdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingWednesdayMinutes} onChange={(e) => setPerformingWednesdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.performingWednesdayHours} onChange={(e) => setPerformingWednesdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingWednesdayMinutes} onChange={(e) => setPerformingWednesdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="thursday">
-                        <input type="number" min='0' defaultValue={activity.performingThursdayHours} onChange={(e) => setPerformingThursdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingThursdayMinutes} onChange={(e) => setPerformingThursdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.performingThursdayHours} onChange={(e) => setPerformingThursdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingThursdayMinutes} onChange={(e) => setPerformingThursdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="friday">
-                        <input type="number" min='0' defaultValue={activity.performingFridayHours} onChange={(e) => setPerformingFridayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingFridayMinutes} onChange={(e) => setPerformingFridayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.performingFridayHours} onChange={(e) => setPerformingFridayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingFridayMinutes} onChange={(e) => setPerformingFridayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="saturday">
-                        <input type="number" min='0' defaultValue={activity.performingSaturdayHours} onChange={(e) => setPerformingSaturdayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingSaturdayMinutes} onChange={(e) => setPerformingSaturdayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.performingSaturdayHours} onChange={(e) => setPerformingSaturdayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingSaturdayMinutes} onChange={(e) => setPerformingSaturdayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="sunday">
-                        <input type="number" min='0' defaultValue={activity.performingSundayHours} onChange={(e) => setPerformingSundayHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingSundayMinutes} onChange={(e) => setPerformingSundayMinutes(Number(e.target.value))}></input>min
+                    <td>
+                        <p><input type="number" min='0' defaultValue={activity.performingSundayHours} onChange={(e) => setPerformingSundayHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingSundayMinutes} onChange={(e) => setPerformingSundayMinutes(Number(e.target.value))}></input> min</p>
                     </td>
-                    <td id="actual">
-                        <p>{totalPerformingHours}</p>hrs
-                        <p>{totalPerformingMinutes}</p>min
+                    <td className="actual">
+                        <p>{totalPerformingHours} hrs</p>
+                        <p>{totalPerformingMinutes} min</p>
                     </td>
                     <td id="goal">
-                        <input type="number" min='0' defaultValue={activity.performingGoalHours} onChange={(e) => setPerformingGoalHours(Number(e.target.value))}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.performingGoalMinutes} onChange={(e) => setPerformingGoalMinutes(Number(e.target.value))}></input>min
+                        <p><input type="number" min='0' defaultValue={activity.performingGoalHours} onChange={(e) => setPerformingGoalHours(Number(e.target.value))}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.performingGoalMinutes} onChange={(e) => setPerformingGoalMinutes(Number(e.target.value))}></input> min</p>
                     </td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <td className="hide"></td>
+                    <td className="hide"></td>
+                    <td className="hide"></td>
+                    <td className="hide"></td>
+                    <td className="hide"></td>
+                    <td className="hide"></td>
+                    <td className="hide"></td>
                     <th>Total</th>
-                    <td>
-                        <p>{overallHours}</p>hrs
-                        <p>{overallMinutes}</p>min 
+                    <td className="actual">
+                        <p>{overallHours} hrs</p>
+                        <p>{overallMinutes} min</p> 
                     </td>
                     <td>
-                        <input type="number" min='0' defaultValue={activity.totalGoalHours} onChange={(e) => setTotalGoalHours(e.target.value)}></input>hrs
-                        <input type="number" min='0' defaultValue={activity.totalGoalMinutes} onChange={(e) => setTotalGoalMinutes(e.target.value)}></input>min 
+                        <p><input type="number" min='0' defaultValue={activity.totalGoalHours} onChange={(e) => setTotalGoalHours(e.target.value)}></input> hrs</p>
+                        <p><input type="number" min='0' defaultValue={activity.totalGoalMinutes} onChange={(e) => setTotalGoalMinutes(e.target.value)}></input> min</p> 
                     </td>
                 </tr>
             </tbody>

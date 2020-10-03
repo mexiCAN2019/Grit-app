@@ -1,7 +1,6 @@
 const express = require('express');
 const subjectiveRouter = express.Router();
 const sqlite3 = require('sqlite3');
-const { updateTable } = require('../src/fetchExpress');
 const db = new sqlite3.Database(process.env.TEST_DATABASE || './database.sqlite');
 
 subjectiveRouter.get('/', (req,res,next) => {

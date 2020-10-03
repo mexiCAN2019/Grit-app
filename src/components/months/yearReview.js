@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import SkillList from './skillList';
 import Express from './../../fetchExpress';
+import './yearReview.css'
 
 function YearReview ({match: {params: { year }}}) {
     const [tableSkills, setTableSkills] = useState([]);
@@ -10,15 +11,10 @@ function YearReview ({match: {params: { year }}}) {
 
     useEffect(() => {
         Express.getYearTableSkills(year).then(tables => setTableSkills(tables));
-    }, []);
-
-    useEffect(() => {
         Express.getYearCheckboxSkills(year).then(checkboxes => setCheckboxSkilss(checkboxes));
-    }, []);
-
-    useEffect(() => {
         Express.getYearReviewSubjective(year).then(textbox => setSubjective(textbox));
     }, []);
+
 
 
     const handleSave = () => {
@@ -35,6 +31,7 @@ function YearReview ({match: {params: { year }}}) {
         if(!subjective){
             return <div>
                     <textarea placeholder="Add comments" onChange={(e) => setText(e.target.value)} value={text} />
+                    <br></br>
                     <button onClick={handleSave}>Save</button>
                 </div>
         }
@@ -44,21 +41,22 @@ function YearReview ({match: {params: { year }}}) {
         };
         return <div>
                 <textarea placeholder="Add comments" onChange={(e) => setText(e.target.value)} defaultValue={subjective.text} value={text} />
+                <br></br>
                 <button onClick={() => Express.updateYearReviewSubjective(year, updatedTextbox)}>Update</button>
             </div> 
         
     };
 
     return (
-        <div>
-            <h1>Month Review</h1>
+        <div className="year-review">
+            <h1>Year Review</h1>
             <div className="list">
                 <SkillList tableSkills={tableSkills} 
                            checkboxSkills={checkboxSkills} /> 
             </div>
             
             <div className="subjective">
-                <h3>Thoughts/Notes</h3>
+                <h3 style={{backgroundColor: "royalblue"}}>Thoughts/Notes</h3>
                 {renderSaveOrUpdateButtonTextarea()}
             </div>
 

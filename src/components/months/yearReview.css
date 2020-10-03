@@ -1,0 +1,15 @@
+* {
+    text-align: center;
+}
+
+button {
+    margin-bottom: 30px;
+}
+
+
+.year-review p {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

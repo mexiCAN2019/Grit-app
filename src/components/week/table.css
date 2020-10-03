@@ -1,0 +1,39 @@
+table {
+    border-collapse: collapse;
+    empty-cells: hide;
+    margin-bottom: 50px;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  tr {
+    height: 100px;
+  }
+
+  tr.headers {
+      height: 60px;
+  }
+
+  td {
+    color: seashell;
+    height: 150px;
+    padding: 20px;
+  }
+
+  input {
+    margin: 0px;
+    width: 50px;
+  }
+
+  p {
+    margin: 0;
+    height: 50px;
+    width: 90px;
+  }
+
+  .actual {
+    font-weight: bold;
+  }

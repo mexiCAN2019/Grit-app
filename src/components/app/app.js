@@ -12,13 +12,13 @@ function App() {
 
   return (
     <Router>
-      <Link to="/">
-        <h1>GRIT</h1>
+      <Link to="/" className="link">
+        <h1 className="title">GRIT</h1>
       </Link>  
       <div className="nav-bar">
 
       </div>
-      <div className="app">
+      <div className="App">
         <Switch>
           <Route path="/" exact component={Landing} />
           <Route path="/:year" exact component={Months} />

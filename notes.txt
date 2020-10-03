@@ -3,3 +3,5 @@
 *OPTIONAL: find a way to let user rearrange forms (table, checkboxes, textboxes). 
 
 *OPTIONAL: find way to add time dynamically 
+
+*Feature: compare Weeks/Months/Years side by side

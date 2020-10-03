@@ -1,0 +1,29 @@
+.checkboxesContainer {
+    width: 333px;
+    height: 500px;
+    background-color: royalblue;
+}
+
+.day {
+    margin: 5px;
+    height: 15px;
+    width: 56px;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 50px;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    width: 82px;
+}

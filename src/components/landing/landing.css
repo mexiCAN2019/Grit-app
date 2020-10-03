@@ -1,0 +1,61 @@
+
+link {
+    text-decoration: none;
+}
+
+.container {
+    text-align: center;
+    color: black;
+    background-color: seashell;
+    width: 500px;
+    margin: auto auto 50px;
+}
+
+h3 {
+    color: black;
+    background-color: seashell;
+}
+
+h2 {
+    background-color: seashell;
+}
+
+button {
+    border-radius: 4px;
+    background-color: navy;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+  input {
+      text-align: center;
+      border-top: honeydew;
+      border-right: honeydew;
+      border-left: honeydew;
+      border-color: navy;
+      width: 100px;
+      margin: 50px auto 20px;
+  }
+
+
+
+.white {
+    border: 1px seashell solid;
+    background-color: seashell;
+    border-bottom: silver solid;
+}
+
+#addInput {
+    background-color: seashell;
+    color: black;
+    margin: 50px auto 20px;
+}

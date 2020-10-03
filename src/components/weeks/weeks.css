@@ -1,0 +1,26 @@
+.container .deleteContainer {
+    text-align: center;
+    color: black;
+    background-color: seashell;
+    width: 500px;
+    margin: auto;
+}
+
+.deleteContainer {
+    border-bottom: rgb(116, 33, 33) dotted;
+    border-top: rgb(116, 33, 33) dotted;
+}
+
+link {
+    color: none;
+}
+
+h1{
+    color: honeydew;
+    margin-top: 0px;
+}
+h3 {
+    color: black;
+    background-color: seashell;
+}
+

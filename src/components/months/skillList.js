@@ -11,10 +11,12 @@ function SkillList({ tableSkills, checkboxSkills }) {
                                          key={skill.id} />
             })}
 
+            <div style={{margin: "100px auto"}}>
             {checkboxSkills.map(skill => {
                 return <CheckboxMonthReview skill={skill}
                                             key={skill.id} />
             })}
+            </div>
         </div>
     );
 };

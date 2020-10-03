@@ -1,0 +1,10 @@
+.textContainer {
+    box-sizing: content-box;
+    border: 1px red solid;
+}
+
+textarea {
+    background-color: white;
+    width: 300px;
+    height: 225px;
+}

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import SkillList from './skillList';
 import Express from './../../fetchExpress';
+import './monthReview.css';
 
 function MonthReview ({match:{params: {monthAndMonthId, year}}}) {
     const [monthId, setMonthId] = useState(monthAndMonthId.replace(/^\D+/g, ''));
@@ -11,16 +12,11 @@ function MonthReview ({match:{params: {monthAndMonthId, year}}}) {
 
     useEffect(() => {
         Express.getTableSkills(year, monthId).then(tables => setTableSkills(tables));
-    }, []);
-
-    useEffect(() => {
         Express.getCheckboxSkills(year, monthId).then(checkboxes => setCheckboxSkilss(checkboxes));
-    }, []);
-
-    useEffect(() => {
         Express.getMonthReviewSubjective(year, monthId).then(textbox => setSubjective(textbox));
     }, []);
 
+  
 
     const handleSave = () => {
         const newTextbox = {
@@ -36,6 +32,7 @@ function MonthReview ({match:{params: {monthAndMonthId, year}}}) {
         if(!subjective){
             return <div>
                     <textarea placeholder="Add comments" onChange={(e) => setText(e.target.value)} value={text} />
+                    <br></br>
                     <button onClick={handleSave}>Save</button>
                 </div>
         }
@@ -45,13 +42,14 @@ function MonthReview ({match:{params: {monthAndMonthId, year}}}) {
         };
         return <div>
                 <textarea placeholder="Add comments" onChange={(e) => setText(e.target.value)} defaultValue={subjective.text} value={text} />
+                <br></br>
                 <button onClick={() => Express.updateReviewSubjective(year, updatedTextbox)}>Update</button>
             </div> 
         
     };
 
     return (
-        <div>
+        <div className="month-review">
             <h1>Month Review</h1>
             <div className="list">
                 <SkillList tableSkills={tableSkills}
@@ -59,7 +57,7 @@ function MonthReview ({match:{params: {monthAndMonthId, year}}}) {
             </div>
             
             <div className="subjective">
-                <h3>Thoughts/Notes</h3>
+                <h3 style={{backgroundColor: "royalblue"}}>Thoughts/Notes</h3>
                 {renderSaveOrUpdateButtonTextarea()}
             </div>
 

@@ -1,5 +1,9 @@
 import React from 'react';
 
+const underline = {
+    textDecoration: "underline"
+}
+
 function MonthTableReview( {skill} ) {
     const { skillName, totalActualHours, totalActualMinutes, learningActualHours, learningActualMinutes, practicingActualHours, practicingActualMinutes, performingActualHours, performingActualMinutes } = skill;
 
@@ -7,18 +11,25 @@ function MonthTableReview( {skill} ) {
         if(minutes >= 60) {
             const hoursToAdd = Math.floor(minutes / 60);
             const minutesRemainder = Math.round(minutes % 60);
-            return <p>{hours + hoursToAdd}Hrs {minutesRemainder}Mins</p>;
+            return <p style={{color: "white"}}>{hours + hoursToAdd}Hrs {minutesRemainder}Mins</p>;
         } 
-        return <p>{hours}Hrs {minutes}Mins</p>;
+        return <p style={{color: "white"}}>{hours}Hrs {minutes}Mins</p>;
     };
 
     return (
-        <div>
-            <h3>{skillName}</h3>
-                <p>Total Time: {renderTime(totalActualHours, totalActualMinutes)}</p>
-                <p>Total Time Practicing: {renderTime(practicingActualHours, practicingActualMinutes)}</p>
-                <p>Total Time Learning: {renderTime(learningActualHours, learningActualMinutes)}</p>
-                <p>Total Time Performing: {renderTime(performingActualHours, performingActualMinutes)}</p>
+        <div style={{marginTop: "50px"}}>
+            <h3 style={{width: "50%", margin: "auto"}}>{skillName}</h3>
+                <h4>Total Time: {renderTime(totalActualHours, totalActualMinutes)}</h4>
+                
+
+                <p style={underline}>Total Time Practicing: </p>
+                {renderTime(practicingActualHours, practicingActualMinutes)}
+
+                <p style={underline}>Total Time Learning: </p>
+                {renderTime(learningActualHours, learningActualMinutes)}
+
+                <p style={underline}>Total Time Performing: </p>
+                {renderTime(performingActualHours, performingActualMinutes)}
         </div>
     );
 };

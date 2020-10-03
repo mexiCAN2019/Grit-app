@@ -1,0 +1,35 @@
+.container .deleteContainer {
+    text-align: center;
+    color: black;
+    background-color: seashell;
+    width: 500px;
+    margin: auto;
+}
+
+.deleteContainer {
+    border-bottom: silver solid;
+}
+
+link {
+    text-decoration: none;
+}
+
+h1{
+    color: honeydew;
+    margin-top: 0px;
+}
+h3 {
+    color: black;
+    background-color: seashell;
+}
+
+.addButton {
+    margin: 30px auto 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+

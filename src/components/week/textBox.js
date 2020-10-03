@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Express from './../../fetchExpress';
+import './textBox.css';
 
 const TextBox = ({ activity, onRemove }) => {
     const [text, setText] = useState(activity.text);
@@ -21,12 +22,12 @@ const TextBox = ({ activity, onRemove }) => {
     };
 
     return (
-        <div>
-            <input type="text" defaultValue={skillName} onChange={(e) => setSkillName(e.target.value)}></input>
-            <textarea onChange={(e) => setText(e.target.value)}>{text}</textarea>
-            <br></br>
+        <div className="textContainer">
+            <input className="skillName" type="text" defaultValue={skillName} onChange={(e) => setSkillName(e.target.value)}></input>
             <button onClick={handleDelete}>Delete</button>
             <button onClick={handleSaveChanges}>Save Changes</button>
+            <br></br>
+            <textarea className="textarea" onChange={(e) => setText(e.target.value)}>{text}</textarea>
         </div>
     );
 };

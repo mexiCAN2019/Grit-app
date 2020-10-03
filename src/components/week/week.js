@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FormList from './formList';
 import Express from './../../fetchExpress';
+import './week.css';
 
 function Week({ match: { params: { year, weekId, monthAndMonthId }}}) {
     const [tables, setTables] = useState([]);
@@ -216,17 +217,21 @@ function Week({ match: { params: { year, weekId, monthAndMonthId }}}) {
 
     const renderDropdown = () => {
         return (
-            <div>
-                <label >Name of Skill</label>
-                <input type="text" name="title" id="title" onChange={handleActivityChange}></input>
-                <label >Choose Form Type</label>
-                <select name="form" id="form" onChange={handleFormChange}>
-                    <option></option>
-                    <option value="table">Table</option>
-                    <option value="checkbox">Checkbox</option>
-                    <option value="subjective">Subjective</option>
-                </select>
-                <button className="add" onClick={onAdd}>Add</button>
+            <div className="dropdown">
+                <div style={{display: "flex", alignItems: "center"}}>
+                    <label style={{marginRight: "10px"}}>Name of Skill</label>
+                    <input className="newSkillName" type="text" name="title" onChange={handleActivityChange}></input>
+                </div>
+                <div>
+                    <label >Choose Form Type</label>
+                    <select name="form" style={{color: "white", marginLeft: "10px", fontSize: "large", border: "black 2px solid"}} onChange={handleFormChange}>
+                        <option></option>
+                        <option value="table">Table</option>
+                        <option value="checkbox">Checkbox</option>
+                        <option value="subjective">Subjective</option>
+                    </select>
+                </div>
+                <button className="formAddButton" onClick={onAdd}>Add</button>
             </div>
         );
     };
@@ -235,13 +240,13 @@ function Week({ match: { params: { year, weekId, monthAndMonthId }}}) {
         <div>
             <h1>Single Week</h1>
 
+            {renderDropdown()}
+
             <FormList tables={tables}
                       checkboxes={checkboxes}
                       subjectives={subjectives}
                       onRemove={removeForm}
                       year={year} />
-
-            {renderDropdown()}
         </div>
     );
 };
