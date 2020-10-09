@@ -1,6 +1,5 @@
 .textContainer {
-    box-sizing: content-box;
-    border: 1px red solid;
+    margin-top: 50px;
 }
 
 textarea {
