@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import {Link} from 'react-router-dom';
 import Express from '../../fetchExpress';
-
+import "./weeks.css"
 
 
 function Weeks({ match:{params: {monthAndMonthId, year}}}) {
@@ -52,8 +52,9 @@ function Weeks({ match:{params: {monthAndMonthId, year}}}) {
         <div className="container">
             <h1>Weeks</h1>
             {renderWeeks()}
-            <input id="addInput" type="number" min="1" max="31" onChange={dateChange}></input> 
+            <input id="addInput" type="number" min="1" max="31" onChange={dateChange} placeholder="Day" />
             <button onClick={handleSaveWeek}>Add</button>
+            <p className="note">*Make sure the day is a Monday. For example, the date 10/5/2020, you would put 5, which is a Monday, for day to add*</p>
             <div className="space"></div>
             <Link className="link" to={`/${year}/${monthAndMonthId}/monthReview`}><h4 id="review">Month Review</h4></Link>
         </div>

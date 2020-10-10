@@ -56,7 +56,7 @@ function Landing () {
             <div>
                 {renderYears()}
             </div>
-            <input id="addInput" type="number" onChange={handleYearChange} min='2020'></input>
+            <input id="addInput" type="number" onChange={handleYearChange} min='2020' placeholder="Year" />
             <button onClick={handleSaveYear}>Add</button>
         </div>
     );
