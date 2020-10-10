@@ -20,7 +20,7 @@
     "sqlite3": "^4.2.0"
   },
   "scripts": {
-    "start": "concurrently \"node server\" \"react-scripts start\"",
+    "start": "concurrently \"nodemon server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
